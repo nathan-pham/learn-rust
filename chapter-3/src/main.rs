@@ -11,9 +11,13 @@ fn main() {
     x = 2;
     println!("Reassigned value of x: {}", x);
 
-    // shadowing
+    // shadowing (allows for type changes)
     let y = 5;
     let y = y + 1;
     let y = y + 10;
     println!("Final value of y: {}", y);
+
+    let r_string = "Random String";
+    let r_string = r_string.len();
+    println!("Final value of r_string: {}", r_string);
 }
