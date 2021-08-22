@@ -18,8 +18,16 @@ fn calculate_length(s: String) -> (String, usize) {
     (s, length)
 }
 
-// refers to value of s but does not own it
-// simply borrows the value of "s", it cannot mutate it (say, by using s.push_str("additional string"))
+// refers to & borrows the value of s but does not own it
+// cannot mutate it (ie:  s.push_str("additional string"))
+// you can create one mutatable references (&mut s) perscope
 fn calculate_length_references(s: &String) -> usize {
     s.len()
 }
+
+// rust prevents dangling references (&) that are never used outside of a scope
+// returning s would be fine because it also returns ownership
+// fn dangler() -> &String {
+//     let s = String::from("Hello World");
+//     &s
+// }
