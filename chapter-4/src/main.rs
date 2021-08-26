@@ -9,6 +9,11 @@ fn main() {
     let s = String::from("Hello World");
     let length = calculate_length_references(&s);
     println!("string: {}, length: {}", s, length);
+
+    // shadow previous s (again)
+    let s = String::from("Hello");
+    let slice = get_slices(&s);
+    println!("string slice: {}", slice)
 }
 
 fn calculate_length(s: String) -> (String, usize) {
@@ -31,3 +36,8 @@ fn calculate_length_references(s: &String) -> usize {
 //     let s = String::from("Hello World");
 //     &s
 // }
+
+// string slices: references part of a String
+fn get_slices(s: &String) -> &str {
+    &s[0..1]
+}
